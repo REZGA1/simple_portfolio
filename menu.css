@@ -1,9 +1,10 @@
 :root {
   --text-color:#ffffff;
-  --link-color:#0b467c;
+  --link-color:#2d70bd;
   --background-color:#000000;
   --nav-color:#000000;
   --hover-color:#ebcc1f;
+  --Donate-color: #000000;
 }
 
 *{
@@ -35,28 +36,56 @@ nav{
   background-color: var(--text-color);
 }
 
-nav .left a {
+nav .left h1 {
     color: var(--nav-color);
-    font-size: 22px;
+    font-size: 30px;
     font-weight: 600;
 }
+
 nav .right a {
     color: var(--nav-color);
     margin: 0px 10px;
-
+    padding: 5px 15px;
+    border-radius: 5px;
+    transition: 0.1s;
+    
 }
+
+nav .right a:hover {
+  color: var(--text-color);
+ background-color: var(--background-color);
+}
+
 nav .right a:last-child {
-    color: var(--background-color);
-    background-color: var(--text-color);
+    color: var(--text-color);
+    background-color: var(--background-color);
     margin: 0px 10px;
     padding: 5px 15px;
     border-radius: 5px;
-
+    transition: 0.5s;
+    display: inline-block;/* for animation*/
+       
 }
+
+nav .right a:last-child:hover {
+    color: var(--Donate-color);
+    background-color: var(--hover-color);
+    border-radius: 5px;
+    animation: nodYes 0.5s ease infinite;
+    /* active animation*/
+}
+
+@keyframes nodYes {
+ 0%,100% { transform: translateY(0);}
+ 25% { transform: translateY(-3px); } /* animation UP*/
+ 75%{transform: translateY(3px);}/*animation DOWN*/
+}
+ 
+
 nav .right a span{
     margin: 5px;
 }
-@media (max-width:600px) {
+@media (max-width:632px) {
     nav {
            /*nav bar*/
             padding: 0px 20px;
@@ -65,19 +94,30 @@ nav .right a span{
 
     nav .right a {
         font-size: 22px;
+       
     }
-
+   
+   nav .right a:hover {
+       color: var(--hover-color);
+       background-color: transparent;
+       
+   }
+    
+    nav .right a span {
+        display: none;
+    }
     nav .right a:last-child {
-        color: var(--text-color);
+        color: var(--background-color);
         background-color: transparent;
         padding: 0px;
 
     }
 
-    nav .right a span {
-        display: none;
-    }
-
+        nav .right a:last-child:hover {
+            background-color: transparent;
+         color: var(--hover-color);
+        }
+    
     /* section1:hero */
     .hero-section{
         padding: 0px 20px;
@@ -93,6 +133,10 @@ nav .right a span{
     .skills-section{
         padding: 0px 20px;
     }
+    
+   .skills-section .text p {
+      font-size: 12px;
+     }
     
     .skills-section .cells .cell span{
 
@@ -120,8 +164,20 @@ nav .right a span{
 }
 
 @media (max-width:750px) {
+  /* nav bar */
+    
+     nav .right  {
+     flex-direction: row;
+       margin: 0px;  
+    }
+
+    nav .right a:last-child {
+     margin: 0px;
+     
+    }
+
     /* SECTION1:HERO */
- .hero-section {
+    .hero-section {
      flex-direction: column-reverse;   
     }
 
@@ -129,8 +185,12 @@ nav .right a span{
      width: 300px; 
     }
 
- /* SECTION3:TESTMONY */
- .testimony-section{
+    /* SECTION:SKILLS */
+   .skills-section .text p {
+       font-size: 16px;
+   }
+   /* SECTION3:TESTMONY */
+   .testimony-section{
         text-align: center;
     }
 
@@ -142,6 +202,7 @@ nav .right a span{
   .contact-section .group{
     flex-direction: column;
   }
+
 }
 
 
@@ -185,9 +246,8 @@ nav .right a span{
 .hero-section .text .link a:hover {
  color: var(--hover-color);
  border:2px solid var(--hover-color);
-
-    filter: drop-shadow(0 0 10px #ebcc1f);
-
+ filter: drop-shadow(0 0 10px #ebcc1f);
+ 
 }
 
 .hero-section .headshot{
@@ -202,8 +262,7 @@ nav .right a span{
  width: 350px;
  border: 4px solid var(--text-color);
  aspect-ratio: 1/1; /*use this if image not square*/
-
-    filter: drop-shadow(0 0 10px rgb(255, 255, 255));
+ filter: drop-shadow(0 0 10px var(--text-color));
 }
 
 /* section2:Skills */
@@ -220,7 +279,7 @@ nav .right a span{
 
 .skills-section .text  {
     text-align: center;
-    font-size: 35px;
+    font-size: 25px;
     margin-bottom: 20px;
     color: var(--text-color);
 }
@@ -230,6 +289,11 @@ nav .right a span{
  justify-content: center;
  flex-wrap: wrap;
 }
+
+.skills-section .cells :hover{
+    color: var(--hover-color);  
+}
+
 .skills-section .cells .cell{
  display: flex;
  justify-content: center;
@@ -237,15 +301,19 @@ nav .right a span{
  width: 200px;
  padding: 10px 20px;
  margin: 10px;
- border: 2px solid #a0a0a0 ;
+ border: 2px solid var(--link-color) ;
  border-radius: 5px;
-
+ transition: 0.5s;
 }
 
-.skills-section .cells .cell i {
- color: var(--link-color);
- 
-    align-items: center;
+.skills-section .cells .cell:hover {
+    border-color: var(--hover-color);
+    
+}
+
+
+.skills-section .cells .cell i:hover {
+ color: var(--hover-color);
 }
 
 .skills-section .cells .cell span{
@@ -352,10 +420,13 @@ nav .right a span{
     border: none;
     height: 50px;
     cursor: pointer;
-    transition: .1s;
+    transition: .5s;
 }
 
 .contact-section .group form button:hover{
-
-    filter: brightness(.9);
+ background-color: var(--background-color);
+  color: var(--hover-color);
+  border-radius: 30px;
+ border: 4px solid var(--hover-color);
+ filter: drop-shadow(0 0 10px var(--hover-color));
 }
