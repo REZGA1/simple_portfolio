@@ -198,6 +198,17 @@ nav .right a span{
     flex-direction: column ;
   }
 
+   .skills-section {
+       padding: 0 20px;
+   }
+
+   .skills-section .cell a {
+       width: 130px;
+       height: 110px;
+   }
+
+   
+
   /* SECTION4:CONTACT */
   .contact-section .group{
     flex-direction: column;
@@ -265,60 +276,94 @@ nav .right a span{
  filter: drop-shadow(0 0 10px var(--text-color));
 }
 
-/* section2:Skills */
-.skills-section{
- padding: 0px 50px;
- margin-bottom: 100px;
+/* Skills section */
+.skills-section {
+    padding: 0 50px;
+    margin-bottom: 100px;
 }
 
+/* heading & intro text */
 .skills-section h2 {
- text-align: center;
- font-size: 35px;
- color: var(--text-color);
-}
-
-.skills-section .text  {
     text-align: center;
-    font-size: 25px;
-    margin-bottom: 20px;
+    font-size: clamp(24px, 4vw, 35px);
     color: var(--text-color);
+    margin-bottom: 10px;
 }
 
+.skills-section .text {
+    text-align: center;
+    font-size: clamp(16px, 2.2vw, 22px);
+    margin: 0 auto 20px;
+    color: var(--text-color);
+    max-width: 900px;
+}
+
+/* wrapper that centers the group of items */
 .skills-section .cells {
- display: flex;
- justify-content: center;
- flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+    padding: 0 20px;
+    margin: 50px 0 100px;
 }
 
-.skills-section .cells :hover{
-    color: var(--hover-color);  
+/* the container holding the anchors: wrap and center them */
+.skills-section .cell {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 900px;
 }
 
-.skills-section .cells .cell{
- display: flex;
- justify-content: center;
- align-items: center;
- width: 200px;
- padding: 10px 20px;
- margin: 10px;
- border: 2px solid var(--link-color) ;
- border-radius: 5px;
- transition: 0.5s;
+/* anchors as "cards" (icons + label) */
+.skills-section .cell a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 160px;
+    height: 140px;
+    text-decoration: none;
+    border-radius: 12px;
+    border: 2px solid var(--link-color);
+    padding: 12px;
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s, filter 0.5s ease;
+    color: var(--text-color);
+
+    /* عدِّل هذا إذا لديك ثيم داكن/فاتح */
 }
 
-.skills-section .cells .cell:hover {
+/* icon + label sizes */
+.skills-section .cell a i,
+.skills-section .cell a .icon {
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+.skills-section .cell a span {
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* hover & keyboard focus */
+.skills-section .cell a:hover,
+.skills-section .cell a:focus {
+    transform: translateY(-6px);
     border-color: var(--hover-color);
-    
+    color: var(--hover-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    outline: none;
+    filter: drop-shadow();
+    filter: drop-shadow(0 0 10px #ebcc1f);
+}
+
+.skills-section .cell a:focus {
+    box-shadow: 0 0 0 4px rgba(235, 204, 31, 0.15);
 }
 
 
-.skills-section .cells .cell i:hover {
- color: var(--hover-color);
-}
-
-.skills-section .cells .cell span{
-    font-size: 18px;
-}
 
 /* section3:testimony */
 .testimony-section{
