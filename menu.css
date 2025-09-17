@@ -6,7 +6,7 @@
   --hover-color:#ebcc1f;
   --Donate-color: #000000;
   --Noption-color: #5a5050;
-
+  --True-option-color : #39c947;
 }
 
 *{
@@ -338,11 +338,6 @@ nav .right a span{
 }
 
 
-#soon {
-    display: none;
- color: var(--Noption-color);
-}
-
 
 
 /* icon + label sizes */
@@ -361,18 +356,44 @@ nav .right a span{
 .skills-section .cell a:hover,
 .skills-section .cell a:focus {
     transform: translateY(-6px);
-    border-color: var(--hover-color);
-    color: var(--hover-color);
+    border-color: var(--Noption-color);
+    color: var(--Noption-color);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
     outline: none;
     filter: drop-shadow();
-    filter: drop-shadow(0 0 10px #ebcc1f);
+    filter: drop-shadow(0 0 10px var(--Noption-color));
 }
 
 .skills-section .cell a:focus {
     box-shadow: 0 0 0 4px rgba(235, 204, 31, 0.15);
 }
 
+
+
+
+
+.skills-section .cell a.design:hover {
+    transform: translateY(-6px);
+    border-color: var(--hover-color);
+    color: var(--hover-color);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    filter: drop-shadow(0 0 10px #ebcc1f);
+}
+
+
+/* نص soon مخفي */
+.soon {
+    opacity: 0;
+    transition: opacity 0.3s;
+    color: var(--Noption-color);
+    font-size: 13px;
+    margin-top: 5px;
+}
+
+/* يظهر عند hover */
+.skills-section .cell a.lock:hover .soon {
+    opacity: 1;
+}
 
 
 /* section3:testimony */
@@ -479,9 +500,9 @@ nav .right a span{
 }
 
 .contact-section .group form button:hover{
- background-color: var(--background-color);
-  color: var(--hover-color);
+ background-color:var(--background-color);
+  color: var(--True-option-color);
   border-radius: 30px;
- border: 4px solid var(--hover-color);
- filter: drop-shadow(0 0 10px var(--hover-color));
+ border: 4px solid var(--True-option-color);
+ filter: drop-shadow(0 0 10px var(--True-option-color));
 }
