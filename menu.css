@@ -5,6 +5,8 @@
   --nav-color:#000000;
   --hover-color:#ebcc1f;
   --Donate-color: #000000;
+  --Noption-color: #5a5050;
+
 }
 
 *{
@@ -334,6 +336,14 @@ nav .right a span{
 
     /* عدِّل هذا إذا لديك ثيم داكن/فاتح */
 }
+
+
+#soon {
+    display: none;
+ color: var(--Noption-color);
+}
+
+
 
 /* icon + label sizes */
 .skills-section .cell a i,
